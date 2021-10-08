@@ -5,9 +5,9 @@
     <b>Price:</b> {{book.price}}<br />
     <b>Qty:</b> {{book.qty}}<br />
     <div align="center">
-        <button class="btn btn-success">&nbsp;+&nbsp;</button>&nbsp;
+        <button class="btn btn-success" v-on:click="Increase(book.bookid)">&nbsp;+&nbsp;</button>&nbsp;
         <button class="btn btn-info" v-on:click="Decrease(book.bookid)">&nbsp;-&nbsp;</button>&nbsp;
-        <button class="btn btn-danger">&nbsp;x&nbsp;</button>
+        <button class="btn btn-danger" v-on:click="Delete(bookid)">&nbsp;x&nbsp;</button>
     </div>
 
 </div>
@@ -20,9 +20,15 @@ export default {
     methods:{
         Decrease(bookId){
             this.$emit("decrease:cartitem",bookId);
+        },
+        Increase(bookId){
+            this.$emit("Increase:cartitem",bookId);
+        },
+        Delete(bookId){
+            this.$emit("Delete:cartitem",bookId);
         }
     }
-
+    
 }
 </script>
 
